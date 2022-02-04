@@ -1,4 +1,4 @@
-let holder = (sortedArr, findNum) =>{
+let binarySearch = (sortedArr, findNum) =>{
     let low = 0;
     let high = sortedArr.length - 1;
     
@@ -20,4 +20,4 @@ let holder = (sortedArr, findNum) =>{
 
 let arr = [0,1,2,3,4,5]
 
-holder(arr, 5);
+binarySearch(arr, 5);
