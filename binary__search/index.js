@@ -18,6 +18,6 @@ let binarySearch = (sortedArr, findNum) =>{
     }
 }
 
-let arr = [0,1,2,3,4,5]
+let arr = [1,2,3,4,5]
 
 binarySearch(arr, 5);
