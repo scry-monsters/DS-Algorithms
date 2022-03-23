@@ -1,23 +1,23 @@
-let binarySearch = (sortedArr, findNum) =>{
-    let low = 0;
-    let high = sortedArr.length - 1;
-    
-    while(low <= high){
-        let mid = Math.floor((low + high) / 2);
-        console.log(mid)
-        let guess = sortedArr[mid];
-        if(guess == findNum){
-            return mid;
-        }
-        if(guess > findNum){
-            high = mid - 1;
-        }
-        else{
-            low = mid + 1;
-        }
+function binarySearch(arr, value) {
+    let min = 0;
+    let max = arr.length - 1;
+    while(min <= max){
+    console.log("ye")
+    const mid = min + Math.floor((max - min) / 2);
+    let guess = arr[mid];
+    if(guess === value){
+      return mid;
     }
-}
+    if(value < guess){
+      max = mid - 1
+    }
+    else {
+      min = mid + 1
+    }
+    }
+    return "Value Not Found"
+  }
 
-let arr = [1,2,3,4,5]
+let testArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 
-binarySearch(arr, 5);
+binarySearch(testArr, 8);
