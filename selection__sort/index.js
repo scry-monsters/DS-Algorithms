@@ -1,19 +1,17 @@
-let array = [1, 3, 9, 4, 2];
-
-function sortingFunc(arr) {
-	for(let i = 0; i < arr.length; i++){
-        let holderMin = i;
-        for(let j = i + 1; j < arr.length; j++){
-            if(arr[j] < arr[holderMin]){
-                console.log("THIS IS THE NEW SMALLEST NUMBER");
-                holderMin = j;
-            }
+function selectionSort(arr) {
+    for(let i = 0; i < arr.length; i++){
+      let currMinIndex = i;
+      for(let j = i + 1; j < arr.length; j++){
+        if(arr[j] < arr[currMinIndex]){
+         currMinIndex = j;
         }
-        let hold = arr[holderMin];
-        arr[holderMin] = arr[i];
-        arr[i] = hold;
+      }
+      let holder = arr[currMinIndex];
+      arr[currMinIndex] = arr[i];
+      arr[i] = holder;
     }
     return arr;
-}
-
-console.log(sortingFunc(array));
+  }
+  
+  
+  console.log(selectionSort([4,5,3,12,5,56]))
