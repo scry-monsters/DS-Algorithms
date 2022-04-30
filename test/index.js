@@ -84,6 +84,29 @@ class LinkedList{
         this.size++;
     }
 
+    removeElement(index){
+        if(index > 0 && index > this.size){
+            return;
+        }
+
+        let current = this.head;
+        let previous;
+        let count = 0;
+
+        if(index === 0){
+            this.head = current.next;
+        }
+        else{
+            while(count < index){
+                count++;
+                previous = current;
+                current = current.next
+            }
+            previous.next = current.next;
+        }
+       this.size--;
+    }
+
     printListData(){
         let current = this.head;
         while(current){
@@ -99,6 +122,7 @@ ll.insertAtFirst(9)
 ll.insertAtFirst(15)
 ll.insertLast(1)
 ll.insertMe(500, 0)
+// ll.removeElement(0)
 ll.printListData();
 
 
