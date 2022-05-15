@@ -29,48 +29,91 @@
 // myHash.setItem("lastName", "Jesus")
 // console.log(myHash.getItem("Jesus"))
 
-class HashTable {
-	constructor(size) {
-		this.size = size;
+// class HashTable {
+// 	constructor(size) {
+// 		this.size = size;
+// 		this.items = new Array(100);
+// 	}
+
+// 	hashingFunc(key) {
+// 		let hash = 0;
+// 		for (let i = 0; i < key.length; i++) {
+// 			hash += key.charCodeAt(i);
+// 		}
+// 		return hash % this.items.length;
+// 	}
+
+// 	add(key, value) {
+//         const index = this.hashingFunc(key);
+//         this.items[index] = [key, value];
+//         this.size++;
+//       }
+// 	get(key){
+// 		const index = this.hashingFunc(key);
+//         return this.items[index]
+// 	}
+//     delete(key){
+//         const index = this.hashingFunc(key);
+//         if(this.items[index] && this.items[index].length > 0){
+//             this.items[index] = [];
+//             this.size--;
+//             return true;
+//         }
+//         return false;
+//     }
+//     contains(key){
+//         const index = this.hashingFunc(key);
+//         return this.items[index].length > 0
+//     }
+// }
+
+// let table = new HashTable();
+
+// table.add("firstName", "scry");
+// console.log(table.contains("firstName"));
+
+class MyHashSet {
+	constructor() {
 		this.items = new Array(100);
 	}
 
-	hashingFunc(key) {
-		let hash = 0;
+	hashFunc(key) {
+		let sum = 0;
 		for (let i = 0; i < key.length; i++) {
-			hash += key.charCodeAt(i);
+			sum += key.charCodeAt(i);
 		}
-		return hash % this.items.length;
+		return sum % this.items.length;
 	}
 
 	add(key, value) {
-        const index = this.hashingFunc(key);
-        this.items[index] = [key, value];
-        this.size++;
-      }
-	get(key){
-		const index = this.hashingFunc(key);
-        return this.items[index]
+		let index = this.hashFunc(key);
+		if (this.items[index]) {
+			this.items[index].push([key, value]);
+		} else {
+			this.items[index] = [[key, value]];
+		}
 	}
-    delete(key){
-        const index = this.hashingFunc(key);
-        if(this.items[index] && this.items[index].length > 0){
-            this.items[index] = [];
-            this.size--;
-            return true;
+
+	remove(key) {
+		let index = this.hashFunc(key);
+		if (this.items[index] && this.items[index].length > 0) {
+			this.items[index] = [];
+		} else {
+			return;
+		}
+	}
+
+	contains(key) {
+		const index = this.hashFunc(key);
+		if(!this.items[index]){
+            return false;
         }
-        return false;
-    }
-    contains(key){
-        const index = this.hashingFunc(key);
-        if(this.items[index] && this.items[index].length > 0){
-            return true;
-        }
-        return false;
-    }
+        return true;
+	} 
 }
 
-let table = new HashTable();
+let h = new MyHashSet();
 
-table.add("firstName", "scry");
-console.log(table.contains("firstName"));
+console.log(h.contains(3));
+
+
