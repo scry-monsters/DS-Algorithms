@@ -23,6 +23,6 @@ function breadthFirstSearch(graph, start, end) {
 	return false;
 }
 
-console.log(breadthFirstSearch(graph, "b", "d"));
+console.log(breadthFirstSearch(graph, "f", "d"));
 
 
