@@ -19,10 +19,10 @@
 //    return counter;
 //   }
 
-let testArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+let testArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 
 // console.log(binarySearch(testArr, 15));
-
+console.log(testArr.length)
 
 
 
@@ -32,12 +32,20 @@ function binarySearch(arr, num){
   let smallest = 0;
   let biggest = arr.length - 1;
   let iterations = 0;
-  if(num > smallest && num < biggest){
-
+  while(biggest > smallest && num < arr[biggest]){
+    iterations++;
+    let middleIndex = Math.floor((smallest + biggest) / 2);
+    if(arr[middleIndex] === num){
+      return iterations;
+    }
+    if(num > arr[middleIndex]){
+      smallest = middleIndex + 1;
+    }
+    else{
+      biggest = middleIndex - 1;
+    }
   }
-  let arrLength = arr.length / 2;
-  let middleIndex = arr[arrLength];
- return middleIndex
+  return iterations;
 }
 
-console.log(binarySearch(testArr, 9));
+console.log(binarySearch(testArr, 10));
