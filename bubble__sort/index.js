@@ -1,4 +1,4 @@
-let arr = [1,6,3,4,9,5];
+let testArr = [1,6,3,4,9,5];
 
 let bubbleSort = (arr) => {
     for(let i = 0; i < arr.length; i++){
@@ -13,6 +13,6 @@ let bubbleSort = (arr) => {
     return arr
 }
 
-console.log(bubbleSort(arr))
+console.log(bubbleSort(testArr))
 
 
