@@ -1,16 +1,17 @@
-var twoSum = function(numbers, target) {
-    let holder = [];
-    for(let i = 0; i < numbers.length; i++){
-        for(let j = 1; j < numbers.length; j++){
-            if(numbers[i] + numbers[j] === target){
-            holder.push(i + 1)
-            holder.push(j + 1)
-            return holder;
-        }   
+var solution = function(isBadVersion) {
+    return function(n) {
+    let left = 1;
+    let right = n;
+    while(left <= right){
+     let middle = Math.floor((left + right) / 2);
+        if(isBadVersion(middle)){
+            right = middle - 1;
+        }
+        else{
+            left = middle + 1;
+        }
     }
+    
+    return left;
     }
-    return "nothing"
 };
-
-
-console.log(twoSum([1,2,3,4,4,9,56,90], 8));
