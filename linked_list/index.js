@@ -106,3 +106,24 @@ const ll = new LinkedList();
 
 
 
+
+
+
+class Node {
+    constructor(data, next = null){
+        this.data = data;
+        this.next = next;
+    }
+}
+
+class LinkedList {
+    constructor(head, size = 0){
+        this.head = head;
+        this.size = size;
+    }
+
+    insertFirst(){
+        this.head = new Node(data, this.head);
+        this.size++;
+    }
+}
