@@ -7,20 +7,11 @@ Output: "s'teL ekat edoCteeL tsetnoc"
 
 var reverseWords = function(s) {
   let arr = s.split(" ");
-  let holder;
+  let holder = "";
      for(let i = 0; i < arr.length; i++){
-       holder = arr[i].split(" ");
-       let start = 0;
-       let end = arr.length - 1;
-       while(start <= end){
-        let switcher = holder[end];
-        holder[end] = holder[start];
-        holder[start] = switcher;
-        start++;
-        end--;
-       }
+       holder += arr[i].split("").reverse().join("") + " ";
      }
-     return holder;
+     return holder.trim();
 };
 
 
