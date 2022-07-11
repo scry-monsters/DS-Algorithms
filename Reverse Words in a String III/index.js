@@ -13,9 +13,9 @@ var reverseWords = function(s) {
        let start = 0;
        let end = arr.length - 1;
        while(start <= end){
-        let switcher = holder[end][i];
-        holder[end][i] = holder[start][i];
-        holder[start][i] = switcher;
+        let switcher = holder[end];
+        holder[end] = holder[start];
+        holder[start] = switcher;
         start++;
         end--;
        }
