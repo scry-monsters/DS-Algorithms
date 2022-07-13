@@ -13,7 +13,7 @@ class LinkedList{
     }
 
     removeNth(elem){
-        
+        let current = this.head;
     }
 }
 
