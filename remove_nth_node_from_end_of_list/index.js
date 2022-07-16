@@ -5,16 +5,10 @@ class Node{
     }
 }
 
-
 class LinkedList{
     constructor(head, size = 0){
         this.head = head;
         this.size = size;
     }
-
-    removeNth(elem){
-        let current = this.head;
-    }
 }
-
 
