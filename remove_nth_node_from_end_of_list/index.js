@@ -10,5 +10,10 @@ class LinkedList{
         this.head = head;
         this.size = size;
     }
+
+
+    removeElem(index){
+        let current = this.head;
+    }
 }
 
