@@ -17,7 +17,7 @@ class LinkedList{
     }
 
 
-    removeElem(index){
+    removeNth(index){
         if(index < 0 || index > this.size){
             return;
         }
