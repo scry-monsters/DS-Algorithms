@@ -44,4 +44,3 @@ ll.addElemToBegin(300);
 ll.addElemToBegin(200);
 ll.addElemToBegin(100);
 ll.removeElem(1);
-console.log(ll.size);
