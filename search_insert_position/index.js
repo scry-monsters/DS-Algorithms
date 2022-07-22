@@ -11,4 +11,3 @@ function searchInsert(nums, target) {
    return nums.length;
 };
 
-console.log(searchInsert([1,3,5,6], 2));
