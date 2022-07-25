@@ -1,15 +1,23 @@
-var middleNode = function(head) {
-    let fast = head;
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+ var middleNode = function(head) {
     let slow = head;
-    
-    while(fast && fast.next){
-        fast = fast.next.next;
-        slow = slow.next;
-    }
-    return slow;
-};
-
-console.log(middleNode([1,2,3,4,5,6,7,8,9]))
+    let fast = head;
+       while(fast !== null && fast.next !== null){
+           slow = slow.next;
+           fast = fast.next.next;
+       }
+       return slow;
+   };
 
 
 // good place to learn about linked lists in general:
