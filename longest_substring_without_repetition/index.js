@@ -10,6 +10,7 @@ let set = new Set();
 while(pointer_b < s.length){
    if(!set.has(s.charAt(pointer_b))){
        set.add(s.charAt(pointer_b));
+       console.log(set)
        pointer_b++;
        max = Math.max(set.size, max);
    }
@@ -22,3 +23,5 @@ return max;
 }
 //https://www.youtube.com/watch?v=3IETreEybaA&ab_channel=NickWhite - Nick White's YouTube channel
 //First time using the sliding window principle to solve a problem.
+
+console.log(lengthOfLongestSubstring("abcabcbb"));
