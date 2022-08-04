@@ -11,7 +11,7 @@ function breadthFirstSearch(graph, start, end){
 	let alreadyChecked = [];
 	while(queue.length > 0){
 		let popHolder = queue.shift();
-		if(!graph[popHolder]){
+		if(!graph[popHolder]){ //on the first cycle a is now = [], because it didn't have the end result, but 'a's connections('b' and 'c') are now in the queue;
 			graph[popHolder] = alreadyChecked;
 		}
 		if(graph[popHolder].includes(end)){

@@ -12,7 +12,6 @@
  * @return {TreeNode}
  */
  var searchBST = function(root, val) {
-    console.log(root);
      if(root === null){
         return null;
     }
