@@ -1,119 +1,73 @@
-// function hashStringToInt(s, tableSize) {
-//     let hash = 17;
+function hashStringToInt(s, tableSize) {
+    let hash = 17;
 
-//     for (let i = 0; i < s.length; i++) {
-//       hash += (13 * hash * s.charCodeAt(i)) % tableSize;
-//     }
+    for (let i = 0; i < s.length; i++) {
+      hash += (13 * hash * s.charCodeAt(i)) % tableSize;
+    }
 
-//     return hash;
-//   }
+    return hash;
+  }
 
-// class HashTable{
-//     constructor(){
-//     this.table = new Array(100);
-//     }
+class HashTable{
+    constructor(){
+    this.table = new Array(100);
+    }
 
-//     setItem = (key, value) => {
-//         const index = hashStringToInt(key, this.table.length);
-//         this.table[index] = value;
-//     }
+    setItem = (key, value) => {
+        const index = hashStringToInt(key, this.table.length);
+        this.table[index] = value;
+    }
 
-//     getItem = (key) => {
-//         const index = hashStringToInt(key, this.table.length);
-//         return this.table[index];
-//     }
-// }
+    getItem = (key) => {
+        const index = hashStringToInt(key, this.table.length);
+        return this.table[index];
+    }
+}
 
-// const myHash = new HashTable();
-// myHash.setItem("firstName", "Bob")
-// myHash.setItem("lastName", "Jesus")
-// console.log(myHash.getItem("Jesus"))
+const myHash = new HashTable();
+myHash.setItem("firstName", "Bob")
+myHash.setItem("lastName", "Jesus")
+console.log(myHash.getItem("Jesus"))
 
-// class HashTable {
-// 	constructor(size) {
-// 		this.size = size;
-// 		this.items = new Array(100);
-// 	}
-
-// 	hashingFunc(key) {
-// 		let hash = 0;
-// 		for (let i = 0; i < key.length; i++) {
-// 			hash += key.charCodeAt(i);
-// 		}
-// 		return hash % this.items.length;
-// 	}
-
-// 	add(key, value) {
-//         const index = this.hashingFunc(key);
-//         this.items[index] = [key, value];
-//         this.size++;
-//       }
-// 	get(key){
-// 		const index = this.hashingFunc(key);
-//         return this.items[index]
-// 	}
-//     delete(key){
-//         const index = this.hashingFunc(key);
-//         if(this.items[index] && this.items[index].length > 0){
-//             this.items[index] = [];
-//             this.size--;
-//             return true;
-//         }
-//         return false;
-//     }
-//     contains(key){
-//         const index = this.hashingFunc(key);
-//         return this.items[index].length > 0
-//     }
-// }
-
-// let table = new HashTable();
-
-// table.add("firstName", "scry");
-// console.log(table.contains("firstName"));
-
-class MyHashSet {
-	constructor() {
+class HashTable {
+	constructor(size) {
+		this.size = size;
 		this.items = new Array(100);
 	}
 
-	hashFunc(key) {
-		let sum = 0;
+	hashingFunc(key) {
+		let hash = 0;
 		for (let i = 0; i < key.length; i++) {
-			sum += key.charCodeAt(i);
+			hash += key.charCodeAt(i);
 		}
-		return sum % this.items.length;
+		return hash % this.items.length;
 	}
 
 	add(key, value) {
-		let index = this.hashFunc(key);
-		if (this.items[index]) {
-			this.items[index].push([key, value]);
-		} else {
-			this.items[index] = [[key, value]];
-		}
+        const index = this.hashingFunc(key);
+        this.items[index] = [key, value];
+        this.size++;
+      }
+	get(key){
+		const index = this.hashingFunc(key);
+        return this.items[index]
 	}
-
-	remove(key) {
-		let index = this.hashFunc(key);
-		if (this.items[index] && this.items[index].length > 0) {
-			this.items[index] = [];
-		} else {
-			return;
-		}
-	}
-
-	contains(key) {
-		const index = this.hashFunc(key);
-		if(!this.items[index]){
-            return false;
+    delete(key){
+        const index = this.hashingFunc(key);
+        if(this.items[index] && this.items[index].length > 0){
+            this.items[index] = [];
+            this.size--;
+            return true;
         }
-        return true;
-	} 
+        return false;
+    }
+    contains(key){
+        const index = this.hashingFunc(key);
+        return this.items[index].length > 0
+    }
 }
 
-let h = new MyHashSet();
+let table = new HashTable();
 
-console.log(h.contains(3));
-
-
+table.add("firstName", "scry");
+console.log(table.contains("firstName"));
