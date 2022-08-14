@@ -4,19 +4,19 @@
  * @return {boolean}
  */
  var checkInclusion = function(s1, s2) {
-    let set = new Set();
-    let pointer_a = 0;
-    let pointer_b = 0;
-    while(pointer_b < s2.length){
-        if(!set.has(s2.charAt(pointer_b))){
-            pointer_b++;
-        }
-        else{
-            set.add(s2.charAt(pointer_a));
-            pointer_a++;
+    let step = s1.length;
+    let string1 = new Set(s1);
+    let string2 = new Set(s2);
+    console.log(string1, string2)
+    while(step >= 0){
+    for(let i = 0; i < string1.length; i++){
+        if(string2.has(string1[i]) ){
+            return true;
         }
     }
+        step--;
     }
+  return false;
 };
 
 console.log(checkInclusion("ab", "eidbaooo"));
