@@ -10,17 +10,17 @@
  * @param {number} val
  * @return {ListNode}
  */
-var removeElements = function (head, val) {
-	while (head !== null && head.val === val) {
-		head = head.next;
-	}
-	let curr = head;
-	while (curr !== null && curr.next !== null) {
-		if (curr.next.val === val) {
-			curr.next = curr.next.next;
-		} else {
-			curr = curr.next;
-		}
-	}
-	return head;
+ var removeElements = function(head, val) {
+    let dummy = new ListNode(-1);
+    dummy.next = head;
+    let curr = dummy;
+    while(curr && curr.next){
+        if(curr.next.val === val){
+            curr.next = curr.next.next;
+        }
+        else{
+            curr = curr.next;
+        }
+    }
+    return dummy.next;
 };

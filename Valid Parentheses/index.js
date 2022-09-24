@@ -15,6 +15,7 @@
         }
        else{
         let stackPop = stack.pop();
+        console.log(stackPop)
         if(stackPop !== map.get(i)) return false;
        }
     }

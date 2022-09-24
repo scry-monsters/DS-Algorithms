@@ -24,3 +24,5 @@
     }
     return result;
 };
+
+// The order of preorder traversal is ROOT LEFT RIGHT 

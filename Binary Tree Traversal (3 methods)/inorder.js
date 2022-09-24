@@ -28,6 +28,6 @@
     }
     return result;
 };
-
+//The order of inorder traversal is LEFT ROOT RIGHT
 
 //https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
