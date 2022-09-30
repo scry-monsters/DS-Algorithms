@@ -1,3 +1,5 @@
-
-let x = 5
-console.log(++x)
+let set = new Set();
+set.add(1);
+set.add(3)
+set.add(1)
+console.log(set);
