@@ -12,3 +12,15 @@
         }
     }
   };
+
+  // better solution 
+  
+  var twoSum = function(nums, target) {
+    let m = new Map();
+    for (let [ind, n] of nums.entries()){
+        if (m.has(target - n)) return [ind, m.get(target - n)]
+        m.set(n, ind)
+    }
+  };
+  
+ console.log(twoSum([5,2], 7))
