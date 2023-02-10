@@ -1,4 +1,6 @@
-from collections import Counter
-nums1 = ["aziz", "aziz", "aziz", "tko",  "tko", "nihongo"]
-holder = Counter(nums1)
-print(holder)
+fhand = open("text.txt", "r")
+for line in fhand:
+    line = line.rstrip()
+    if not "@" in line:
+        continue
+    print(line)
